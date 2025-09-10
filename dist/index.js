@@ -557,6 +557,7 @@ class OidcClient {
                 .getJson(id_token_url)
                 .catch(error => {
                 throw new Error(`Failed to get ID Token. \n 
+        URL: ${id_token_url}\n
         Error Code : ${error.statusCode}\n 
         Error Message: ${error.message}`);
             });
@@ -19509,7 +19510,8 @@ const { exportSecrets } = __nccwpck_require__(3348);
     try {
         await core.group('Get Vault Secrets', exportSecrets);
     } catch (error) {
-        core.setOutput("errorMessage", error.message);
+        core.setOutput("errorMessageX", error.message);
+        core.setOutput("XXX", error.message);
         core.setFailed(error.message);
     }
 })();
